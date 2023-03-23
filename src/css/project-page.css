@@ -1,0 +1,24 @@
+/* Project Page Styles */
+  
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 42rem;
+    margin: 0 auto 4rem auto;
+  }
+  
+  .project {
+    margin-bottom: 4rem;
+  }
+  
+  .project__image-wrapper {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project__image-wrapper img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 0.25rem;
+  }

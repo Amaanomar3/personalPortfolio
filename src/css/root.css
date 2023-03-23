@@ -1,0 +1,10 @@
+:root {
+    --slate-300: #0c243c;
+    --slate-600: #475569;
+    --amber-100: #fef3c7;
+    --amber-600: #d97706;
+    --amber-700: #b45309;
+    --amber-800: #92400e;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }

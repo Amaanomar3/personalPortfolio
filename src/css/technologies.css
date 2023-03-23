@@ -1,0 +1,39 @@
+  .technologies__heading {
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: #55c2c3;
+  }
+  
+  .technologies__list {
+    width: 100%;
+    max-width: 36rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .technologies__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .technologies__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    height: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .technologies__title {
+    font-weight: 400;
+    color: aliceblue;
+  }
+  

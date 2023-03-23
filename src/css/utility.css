@@ -1,0 +1,14 @@
+
+.container {
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .content {
+    flex: 1 0 auto;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  

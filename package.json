@@ -1,0 +1,22 @@
+{
+  "name": "eleventy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "npx del public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^3.0.0",
+    "del-cli": "^5.0.0",
+    "nunjucks": "^3.2.3"
+  }
+}
