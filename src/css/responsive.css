@@ -10,6 +10,9 @@
     .profile__image-wrapper img {
       margin: 4rem;
     }
+    .project {
+      width: 70%;
+    }
 
   }
 

@@ -10,6 +10,7 @@
   
   .project {
     margin-bottom: 4rem;
+    margin: auto;
   }
   
   .project__image-wrapper {

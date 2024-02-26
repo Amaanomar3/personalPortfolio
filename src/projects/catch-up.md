@@ -1,28 +1,19 @@
 ---
-title: "Catch Up"
-summary: "Sometimes it's hard to keep in touch with friends and family. I made this app to remind me to schedule a call if we haven't talked in a while."
-image: /images/Node.jpg
-imageAlt: "Screenshots of catch up app"
+title: "Giftees"
+summary: "A gifting platform built on the Bubble.io no-code platform"
+image: /images/Giftees-homepage.png
+imageAlt: "Screenshot of Giftees homepage"
 tech:
-  - "Next.js"
-  - "Firebase"
-  - "Tailwind CSS"
-siteUrl: "#"
+  - "Bubble.io"
+  - "Javascript"
+siteUrl: "giftees.net"
 repoUrl: "#"
 ---
 
-### Problem Solved
+### What is it? 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt tortor aliquam nulla facilisi. Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque sit. Condimentum lacinia quis vel eros donec ac odio tempor orci.
+Giftees is an online international gifting platform that I have been helping develop for some time now. I began working here in june 2023 and have been assisting in it's development since.
 
-### Technologies Used
+### What have I learned? 
 
-Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Diam sit amet nisl suscipit adipiscing bibendum est ultricies. Consequat ac felis donec et odio pellentesque diam volutpat commodo.
-
-### Challenges Faced
-
-Eget mauris pharetra et ultrices. Molestie nunc non blandit massa enim nec. Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Nulla at volutpat diam ut venenatis. Volutpat ac tincidunt vitae semper quis lectus nulla at.
-
-### Lessons Learned
-
-Non blandit massa enim nec. Tempor commodo ullamcorper a lacus vestibulum sed. Et netus et malesuada fames ac turpis egestas integer eget. In ante metus dictum at tempor commodo. Eu scelerisque felis imperdiet proin fermentum leo.
+As Giftees was built on the Bubble.io no-code platform I didn't really gain many skills in terms of coding however I definitely learned a lot about project management and planning. As well as developing a much deeper understanding of application structure and database structure.
