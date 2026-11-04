@@ -12,6 +12,8 @@
 
   .header__title {
     position: relative;
+    font-size: 2em;
+    font-weight: bold;
     margin-bottom: 1rem;
     margin-right: 1rem;
     color: #55c2c3;
@@ -116,6 +118,9 @@
   
   .hamburger {
     display: none;
+    background: none;
+    border: 0;
+    padding: 0;
 }
 
 .bar {
