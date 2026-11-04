@@ -9,6 +9,7 @@ interface Props {
 }
 const { title, description = SITE.description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const is404 = /^\/404\/?$/.test(Astro.url.pathname);
 const ogImage = new URL(SITE.ogImage, SITE.url).href;
 const path = Astro.url.pathname;
 const year = new Date().getFullYear();
@@ -31,7 +32,7 @@ const person = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {!is404 && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
 
     <meta property="og:type" content="website" />
