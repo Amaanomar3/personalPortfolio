@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+---
+<Base
+  title="Work | Amaan Omar"
+  description="QuickLaunch, Onnu, my advisory work with African startups and ventures, and CreatorConnect."
+>
+  <div class="container page-head"><h1>Work</h1></div>
+
+  <section id="quicklaunch" class="section container prose">
+    <h2>QuickLaunch</h2>
+    <p class="muted">Co-founder and technical lead, 2025 to now</p>
+    <p>
+      QuickLaunch is the company I co-founded with Marcel Manikum. Marcel is our CEO and I lead everything
+      technical. We build software with AI at its core, and we audit and rescue products that were built
+      quickly on Lovable, Bolt and Replit.
+    </p>
+    <p>
+      I designed our AI development harnesses: the tooling and guardrails that let AI write code safely and
+      consistently. I also built the memory and context management that keeps our AI agents accurate on
+      large, real-world codebases.
+    </p>
+    {/*
+      AWAITING AMAAN'S APPROVAL of this wording.
+      <p>I built an agentic platform where a fleet of AI agents runs real projects. Each agent has its own job
+      and its own memory. They hand work to each other, and they ask me when a decision is mine.</p>
+    */}
+    <p><a href={SITE.links.quicklaunch} rel="noopener" target="_blank">quicklaunch.dev</a></p>
+  </section>
+
+  <section id="onnu" class="section container prose">
+    <h2>Onnu</h2>
+    <p>
+      Onnu is our AI-assisted code review tool. I designed and built it while QuickLaunch was part of Jasiri
+      Talent Investor, Cohort 2 South Africa. We use it to run code audits, and an engineer checks every
+      finding.
+    </p>
+    {/* [CONFIRM] link to audit.onnu.ai once Amaan clears the domain. */}
+  </section>
+
+  <section id="advisory" class="section container prose">
+    <h2>Advisory</h2>
+    <p>
+      I advise African startups and ventures on building with AI: which model suits which job, where
+      AI-written code tends to break, and how to rescue a product that was built fast.
+    </p>
+    <p>If that's useful to your team, <a href="/contact/">get in touch</a>.</p>
+  </section>
+
+  <section id="creatorconnect" class="section container prose">
+    <h2>CreatorConnect</h2>
+    <p class="muted">Founder, 2024</p>
+    <p>
+      In May 2024 I started CreatorConnect, a dashboard for UGC marketing agencies to track TikTok view
+      counts. There was no software for it, so I built it, quickly and before AI coding tools. For a few
+      months it reached R100,000 a month, about $25,000 in total. Then I burnt out and stopped.
+    </p>
+  </section>
+  {/* "Earlier work" list (Gifties, PDF-Parser, Android UI automation) waits on Amaan: keep or drop (open question 4). */}
+</Base>

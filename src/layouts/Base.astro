@@ -1,0 +1,149 @@
+---
+import '../styles/global.css';
+import { SITE, NAV } from '../site';
+
+interface Props {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+}
+const { title, description = SITE.description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImage = new URL(SITE.ogImage, SITE.url).href;
+const path = Astro.url.pathname;
+const year = new Date().getFullYear();
+const isCurrent = (href: string) => path === href || path.startsWith(href);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@Amaan_0mar" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#0e1116" />
+
+    <!-- Google Fonts placeholder: swap families here when the brand direction is chosen (and in tokens.css). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container bar">
+        <a class="logo" href="/" aria-label="Amaan Omar, home">Amaan Omar</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-controls="site-nav"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Main">
+          <ul>
+            {NAV.map((item) => (
+              <li>
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container foot">
+        <p>© Amaan Omar {year}</p>
+        <ul>
+          <li><a href={SITE.links.linkedin} rel="me noopener" target="_blank">LinkedIn</a></li>
+          <li><a href={SITE.links.x} rel="me noopener" target="_blank">X</a></li>
+          <li><a href={SITE.links.github} rel="me noopener" target="_blank">GitHub</a></li>
+          <li><a href="/speaking-writing/">Speaking and writing</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+      const nav = document.getElementById('site-nav');
+      if (toggle && nav) {
+        const set = (open: boolean) => {
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          nav.classList.toggle('open', open);
+        };
+        toggle.addEventListener('click', () => set(toggle.getAttribute('aria-expanded') !== 'true'));
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); toggle.focus(); }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .skip { position: absolute; left: -999px; top: 0; padding: 0.5rem 1rem; background: var(--color-accent); color: var(--color-accent-ink); z-index: 20; }
+  .skip:focus { left: 1rem; top: 1rem; }
+
+  .site-header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-line); }
+  .bar { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+  .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--color-ink); text-decoration: none; }
+  .site-nav ul { display: flex; gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+  .site-nav a { color: var(--color-ink-muted); text-decoration: none; font-weight: 600; }
+  .site-nav a:hover, .site-nav a[aria-current='page'] { color: var(--color-ink); }
+  .site-nav a[aria-current='page'] { box-shadow: inset 0 -2px 0 var(--color-accent); }
+
+  .menu-toggle { display: none; background: none; border: 1px solid var(--color-line); border-radius: 10px; width: 44px; height: 44px; cursor: pointer; position: relative; }
+  .menu-icon, .menu-icon::before, .menu-icon::after { position: absolute; left: 11px; width: 20px; height: 2px; background: var(--color-ink); content: ''; transition: transform var(--dur) var(--ease), opacity var(--dur); }
+  .menu-icon { top: 20px; }
+  .menu-icon::before { left: 0; top: -6px; }
+  .menu-icon::after { left: 0; top: 6px; }
+  .menu-toggle[aria-expanded='true'] .menu-icon { background: transparent; }
+  .menu-toggle[aria-expanded='true'] .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded='true'] .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 720px) {
+    .menu-toggle { display: block; }
+    .site-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--color-bg); border-bottom: 1px solid var(--color-line); }
+    .site-nav.open { display: block; }
+    .site-nav ul { flex-direction: column; gap: 0; padding: var(--space-1) var(--space-3) var(--space-3); }
+    .site-nav a { display: block; padding: 0.85rem 0; font-size: var(--text-lg); }
+    .site-nav a[aria-current='page'] { box-shadow: none; color: var(--color-accent); }
+  }
+
+  .site-footer { border-top: 1px solid var(--color-line); padding-block: var(--space-4); color: var(--color-ink-muted); font-size: var(--text-sm); }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); align-items: center; }
+  .foot p { margin: 0; }
+  .foot ul { display: flex; flex-wrap: wrap; gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+  .foot a { color: var(--color-ink-muted); }
+  .foot a:hover { color: var(--color-ink); }
+</style>

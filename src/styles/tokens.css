@@ -1,0 +1,43 @@
+/*
+ * Brand tokens: the ONE place colours, type and shape live.
+ * Placeholder values until the brand direction is chosen.
+ * To apply a direction, replace the
+ * values below (and the Google Fonts URL in src/layouts/Base.astro). The Three.js
+ * hero reads --color-accent, --color-accent-2 and --color-ink from here at runtime.
+ */
+:root {
+  /* colour */
+  --color-bg: #0e1116;
+  --color-surface: #161b22;
+  --color-ink: #e9edf2;
+  --color-ink-muted: #9aa4b2;
+  --color-line: #2a313c;
+  --color-accent: #4fd1c5;
+  --color-accent-2: #f6ad55;
+  --color-accent-ink: #0e1116;
+
+  /* type */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2.25rem, 1.6rem + 3vw, 4rem);
+  --leading: 1.65;
+
+  /* shape and space */
+  --radius: 14px;
+  --radius-pill: 999px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --measure: 68ch;
+  --container: 1120px;
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 220ms;
+}

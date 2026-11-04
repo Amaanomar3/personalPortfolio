@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../site';
+// Placeholder: out of the main nav and the sitemap, noindex, until the first item exists.
+// Item format: date · event or publication · title · one line · link.
+---
+<Base
+  title="Speaking and writing | Amaan Omar"
+  description="Talks, panels and writing by Amaan Omar on building with AI."
+  noindex
+>
+  <div class="container prose page-head">
+    <h1>Speaking and writing</h1>
+    <p>
+      I write about what I build with AI and what breaks along the way. You'll find it first on
+      <a href={SITE.links.linkedin} rel="noopener" target="_blank">LinkedIn</a> and
+      <a href={SITE.links.x} rel="noopener" target="_blank">X</a>.
+    </p>
+    <p>
+      Talks and panels will be listed here. If you'd like me to speak at your event,
+      <a href="/contact/">get in touch</a>.
+    </p>
+  </div>
+</Base>
