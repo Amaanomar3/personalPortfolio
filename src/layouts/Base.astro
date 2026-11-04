@@ -42,6 +42,33 @@ const isCurrent = (href: string) => path === href || path.startsWith(href);
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="theme-color" content="#0e1116" />
 
+    <!--
+      Preview only, until a brand direction is chosen: ?dir=ledger|long-table|build-log sets
+      html[data-dir] before first paint (kept for the tab session; ?dir=neutral resets) and
+      loads that direction's fonts. See src/styles/tokens.css.
+    -->
+    <script is:inline>
+      (function () {
+        var fonts = {
+          ledger: 'family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500',
+          'long-table': 'family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Figtree:wght@400;600',
+          'build-log': 'family=Archivo:wdth,wght@100,400;100,600;125,800&family=JetBrains+Mono:wght@500;600',
+        };
+        try {
+          var q = new URLSearchParams(location.search).get('dir');
+          if (q === 'neutral') sessionStorage.removeItem('dir');
+          else if (fonts[q]) sessionStorage.setItem('dir', q);
+          var d = sessionStorage.getItem('dir');
+          if (!fonts[d]) return;
+          document.documentElement.setAttribute('data-dir', d);
+          var l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.href = 'https://fonts.googleapis.com/css2?' + fonts[d] + '&display=swap';
+          document.head.appendChild(l);
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Google Fonts placeholder: swap families here when the brand direction is chosen (and in tokens.css). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

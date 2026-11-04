@@ -3,7 +3,12 @@
  * Placeholder values until the brand direction is chosen.
  * To apply a direction, replace the
  * values below (and the Google Fonts URL in src/layouts/Base.astro). The Three.js
- * hero reads --color-accent, --color-accent-2 and --color-ink from here at runtime.
+ * hero reads the --hero-* values below at runtime (colours, piece shape, density, speed),
+ * so it changes with the direction and needs no code changes.
+ *
+ * Preview only: the three candidate directions are below as html[data-dir] blocks.
+ * Open any page with ?dir=ledger, ?dir=long-table or ?dir=build-log (?dir=neutral resets).
+ * Once a direction is chosen, move its values into :root and delete the blocks.
  */
 :root {
   /* colour */
@@ -40,4 +45,143 @@
   /* motion */
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --dur: 220ms;
+
+  /*
+   * Hero: separate pieces that assemble into one whole. Lengths are scene units
+   * (the finished form has a radius of 1.6).
+   */
+  --hero-ink: var(--color-ink);        /* most pieces */
+  --hero-ink-2: var(--color-accent);   /* one piece in five */
+  --hero-mark: var(--color-accent-2);  /* the last piece to land */
+  --hero-piece-w: 0.08;                /* piece size along its ring */
+  --hero-piece-h: 0.08;                /* piece size across the ring (line weight for thin pieces) */
+  --hero-piece-d: 0.08;
+  --hero-piece-round: 1;               /* 0 square corners, 1 fully round */
+  --hero-density: 2;                   /* 1 sparse, 2 medium, 3 dense */
+  --hero-speed: 1;                     /* assembly and turning speed */
+  --hero-snap: 0;                      /* 0 glides; N moves each piece in N steps */
+  --hero-shade: 0.2;                   /* 0 flat colour, 1 strongly lit */
+  --hero-spin: 0.12;                   /* turn rate, radians per second */
+  --hero-tilt: 0.18;                   /* how far it answers the pointer */
+  --hero-scatter: 1;                   /* how far apart the pieces start */
+  --hero-mark-w: 0.16;
+  --hero-mark-h: 0.16;
+  --hero-mark-d: 0.16;
+  --hero-mark-round: 1;
+  --hero-mark-x: 1.55;
+  --hero-mark-y: -1.45;
+  --hero-mark-blink: 0;
+}
+
+/* Direction 1, Ledger: hairline rules, ink on paper, one proof-red full stop. Slow and calm. */
+html[data-dir='ledger'] {
+  --color-bg: #f5f1e8;
+  --color-surface: #ede7da;
+  --color-ink: #1d1b18;
+  --color-ink-muted: #5c574f;
+  --color-line: #d8d1c3;
+  --color-accent: #9e2a1b;
+  --color-accent-2: #1d1b18;
+  --color-accent-ink: #f5f1e8;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Newsreader', Georgia, serif;
+  --radius: 2px;
+  --radius-pill: 2px;
+
+  --hero-ink: #1d1b18;
+  --hero-ink-2: #5c574f;
+  --hero-mark: #9e2a1b;
+  --hero-piece-w: 0.25;
+  --hero-piece-h: 0.014;
+  --hero-piece-d: 0.014;
+  --hero-piece-round: 0;
+  --hero-density: 2;
+  --hero-speed: 0.75;
+  --hero-snap: 0;
+  --hero-shade: 0;
+  --hero-spin: 0.07;
+  --hero-tilt: 0.12;
+  --hero-scatter: 0.8;
+  --hero-mark-w: 0.15;
+  --hero-mark-h: 0.15;
+  --hero-mark-d: 0.15;
+  --hero-mark-round: 1;
+  --hero-mark-x: 1.55;
+  --hero-mark-y: -1.45;
+  --hero-mark-blink: 0;
+}
+
+/* Direction 2, Long Table: soft wooden slats in umber and shweshwe indigo, resting on a clay table. */
+html[data-dir='long-table'] {
+  --color-bg: #f3e9da;
+  --color-surface: #e6d8c3;
+  --color-ink: #2b1d14;
+  --color-ink-muted: #6b5444;
+  --color-line: #ddcdb5;
+  --color-accent: #a4462a;
+  --color-accent-2: #233a6e;
+  --color-accent-ink: #f3e9da;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
+  --radius: 10px;
+
+  --hero-ink: #6b5444;
+  --hero-ink-2: #233a6e;
+  --hero-mark: #a4462a;
+  --hero-piece-w: 0.27;
+  --hero-piece-h: 0.12;
+  --hero-piece-d: 0.1;
+  --hero-piece-round: 0.6;
+  --hero-density: 2;
+  --hero-speed: 0.85;
+  --hero-snap: 0;
+  --hero-shade: 0.3;
+  --hero-spin: 0.1;
+  --hero-tilt: 0.18;
+  --hero-scatter: 1;
+  --hero-mark-w: 2.6;
+  --hero-mark-h: 0.09;
+  --hero-mark-d: 0.4;
+  --hero-mark-round: 0.4;
+  --hero-mark-x: 0;
+  --hero-mark-y: -1.92;
+  --hero-mark-blink: 0;
+}
+
+/* Direction 3, Build Log: dense chalk blocks on carbon that snap in fast, then a blinking signal cursor. */
+html[data-dir='build-log'] {
+  --color-bg: #121412;
+  --color-surface: #1a1d1a;
+  --color-ink: #ecebe4;
+  --color-ink-muted: #8b918a;
+  --color-line: #262a26;
+  --color-accent: #ff5b1f;
+  --color-accent-2: #8b918a;
+  --color-accent-ink: #121412;
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --radius: 0;
+  --radius-pill: 0;
+
+  --hero-ink: #ecebe4;
+  --hero-ink-2: #8b918a;
+  --hero-mark: #ff5b1f;
+  --hero-piece-w: 0.12;
+  --hero-piece-h: 0.12;
+  --hero-piece-d: 0.12;
+  --hero-piece-round: 0;
+  --hero-density: 3;
+  --hero-speed: 1.5;
+  --hero-snap: 5;
+  --hero-shade: 0.45;
+  --hero-spin: 0.16;
+  --hero-tilt: 0.22;
+  --hero-scatter: 1.2;
+  --hero-mark-w: 0.2;
+  --hero-mark-h: 0.34;
+  --hero-mark-d: 0.2;
+  --hero-mark-round: 0;
+  --hero-mark-x: 1.55;
+  --hero-mark-y: -1.45;
+  --hero-mark-blink: 1;
 }
