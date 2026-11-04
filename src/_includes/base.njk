@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{'/css/header.css' | url | safe}}">
-  <link rel="stylesheet" href="{{'/css/normalize.css' | url | safe}}">
   <link rel="stylesheet" href="{{'/css/technologies.css' | url | safe}}">
   <link rel="stylesheet" href="{{'/css/projects.css' | url | safe}}">
   <link rel="stylesheet" href="{{'/css/contact.css' | url | safe}}">
@@ -23,8 +22,24 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="I'm a Frontend software developer who builds sites and apps that help people reach their personal and professional goals."/>
+  {%- set pageDescription = description or site.description %}
+  {%- set pageUrl = site.url + page.url %}
+  <meta name="description" content="{{ pageDescription }}">
   <title>{{ title }}</title>
+  <link rel="canonical" href="{{ pageUrl }}">
+  {%- if noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ pageDescription }}">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+  <meta property="og:image:alt" content="{{ site.ogImageAlt }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="{{ site.twitter }}">
 </head>
 <body>
     {% include "header.njk" %}
@@ -45,11 +60,13 @@ navLink.forEach(n => n.addEventListener("click", closeMenu));
 function mobileMenu() {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
+    hamburger.setAttribute("aria-expanded", navMenu.classList.contains("active"));
 }
 
 function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
 }
   </script>
 </body>

@@ -1,8 +1,9 @@
  <header class="header container">
-    <h1 class="header__title">
+    {%- set titleTag = "h1" if page.url == "/" else "p" %}
+    <{{ titleTag }} class="header__title">
       <a href="/">Amaan Omar</a>
-    </h1>
-    <ul class="header__links">
+    </{{ titleTag }}>
+    <ul class="header__links" id="site-nav">
       <li>
         <a class="header__link" href="/about">About</a>
       </li>
@@ -13,10 +14,10 @@
         <a class="header__link" href="/contact">Contact</a>
       </li>
     </ul>
-     <div class="hamburger">
+     <button class="hamburger" type="button" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
-  
+            </button>
+
 	</header>

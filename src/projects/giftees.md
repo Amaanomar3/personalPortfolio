@@ -1,5 +1,6 @@
 ---
 title: "Giftees"
+description: "Giftees, an international gifting platform built on Bubble.io, which I helped develop."
 summary: "A gifting platform built on the Bubble.io no-code platform"
 image: /images/Giftees-homepage.png
 imageAlt: "Screenshot of Giftees homepage"
@@ -12,7 +13,7 @@ repoUrl: "#"
 
 ### What is it? 
 
-Giftees is an online international gifting platform that I have been helping develop for some time now. I began working here in june 2023 and have been assisting in it's development since.
+Giftees is an online international gifting platform that I have been helping develop for some time now. I began working here in June 2023 and have been assisting in its development since.
 
 ### What have I learned? 
 
