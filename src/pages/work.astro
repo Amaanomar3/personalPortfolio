@@ -6,11 +6,59 @@ import { SITE } from '../site';
   title="Work | Amaan Omar"
   description="QuickLaunch, Onnu, my advisory work with African startups and ventures, and CreatorConnect."
 >
-  <div class="container page-head"><h1>Work</h1></div>
+  <div class="container page-head">
+    <h1>Work</h1>
+    <p class="lede prose">What I build and advise on, newest first. The details follow below.</p>
+  </div>
 
-  <section id="quicklaunch" class="section container prose">
+  <section class="container work-log" aria-label="The record">
+    <ol class="changelog">
+      <li class="now">
+        <time>Now</time>
+        <div>
+          <h3><a href="#quicklaunch">QuickLaunch and Onnu</a></h3>
+          <p>I lead the technical side of QuickLaunch with Marcel Manikum as CEO, and I designed and built Onnu, our AI code-audit product.</p>
+        </div>
+        <span class="tag">Building</span>
+      </li>
+      <li>
+        <time>Now</time>
+        <div>
+          <h3><a href="#advisory">Advisory</a></h3>
+          <p>I advise African startups and ventures on building with AI.</p>
+        </div>
+        <span class="tag">Advising</span>
+      </li>
+      <li>
+        <time datetime="2025">2025</time>
+        <div>
+          <h3><a href="#quicklaunch">Co-founded QuickLaunch</a></h3>
+          <p>I met Marcel Manikum at a networking event, and we started QuickLaunch together.</p>
+        </div>
+        <span class="tag">Built</span>
+      </li>
+      <li>
+        <time datetime="2024-05">May 2024</time>
+        <div>
+          <h3><a href="#creatorconnect">CreatorConnect</a></h3>
+          <p>A dashboard for UGC marketing agencies to track TikTok view counts. I built it quickly, before AI coding tools.</p>
+        </div>
+        <span class="tag">Shipped</span>
+      </li>
+      <li>
+        <time datetime="2023">2023</time>
+        <div>
+          <h3>Freelance, full time</h3>
+          <p>Gifties, an international gifting platform built on Bubble, and clients in Amsterdam, the US and Dubai. At the end of 2023 I went full time.</p>
+        </div>
+        <span class="tag">Learned</span>
+      </li>
+    </ol>
+  </section>
+
+  <section id="quicklaunch" class="section container"><div class="prose">
     <h2>QuickLaunch</h2>
-    <p class="muted">Co-founder and technical lead, 2025 to now</p>
+    <p class="eyebrow">Co-founder and technical lead · 2025 to now</p>
     <p>
       QuickLaunch is the company I co-founded with Marcel Manikum. Marcel is our CEO and I lead everything
       technical. We build software with AI at its core, and we audit and rescue products that were built
@@ -27,35 +75,46 @@ import { SITE } from '../site';
       and its own memory. They hand work to each other, and they ask me when a decision is mine.</p>
     */}
     <p><a href={SITE.links.quicklaunch} rel="noopener" target="_blank">quicklaunch.dev</a></p>
-  </section>
+  </div></section>
 
-  <section id="onnu" class="section container prose">
+  <section id="onnu" class="section container"><div class="prose">
     <h2>Onnu</h2>
     <p>
-      Onnu is our AI-assisted code review tool. I designed and built it while QuickLaunch was part of Jasiri
-      Talent Investor, Cohort 2 South Africa. We use it to run code audits, and an engineer checks every
-      finding.
+      Onnu is our AI code-audit product. I designed and built it while QuickLaunch was part of Jasiri
+      Talent Investor, Cohort 2 South Africa.
+    </p>
+    <p>
+      First it asks you what your app should do. Then it checks whether it does. You connect GitHub
+      read-only and answer questions about your goals and what must never break while Onnu reads the code.
+      Then you get every issue in plain English, most dangerous first.
     </p>
     {/* [CONFIRM] link to audit.onnu.ai once Amaan clears the domain. */}
-  </section>
+  </div></section>
 
-  <section id="advisory" class="section container prose">
+  <section id="advisory" class="section container"><div class="prose">
     <h2>Advisory</h2>
     <p>
       I advise African startups and ventures on building with AI: which model suits which job, where
       AI-written code tends to break, and how to rescue a product that was built fast.
     </p>
     <p>If that's useful to your team, <a href="/contact/">get in touch</a>.</p>
-  </section>
+  </div></section>
 
-  <section id="creatorconnect" class="section container prose">
+  <section id="creatorconnect" class="section container"><div class="prose">
     <h2>CreatorConnect</h2>
-    <p class="muted">Founder, 2024</p>
+    <p class="eyebrow">Founder · 2024</p>
     <p>
       In May 2024 I started CreatorConnect, a dashboard for UGC marketing agencies to track TikTok view
       counts. There was no software for it, so I built it, quickly and before AI coding tools. For a few
       months it reached R100,000 a month, about $25,000 in total. Then I burnt out and stopped.
     </p>
-  </section>
+  </div></section>
   {/* "Earlier work" list (Gifties, PDF-Parser, Android UI automation) waits on Amaan: keep or drop (open question 4). */}
 </Base>
+
+<style>
+  .work-log { padding-bottom: var(--space-4); }
+  .changelog h3 a { color: inherit; text-decoration: none; }
+  .changelog h3 a:hover { color: var(--color-accent); text-decoration: underline; }
+  section[id] .eyebrow { margin-bottom: var(--space-2); }
+</style>

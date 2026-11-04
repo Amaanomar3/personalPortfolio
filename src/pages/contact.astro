@@ -8,6 +8,7 @@ import { SITE } from '../site';
 >
   <div class="container page-head contact">
     <div class="prose">
+      <p class="eyebrow">Contact</p>
       <h1>Get in touch</h1>
       {/* [CONFIRM] "I read every one" only if Amaan reads the Netlify form inbox. */}
       <p>
@@ -42,12 +43,13 @@ import { SITE } from '../site';
 <style>
   .contact { display: grid; gap: var(--space-4); }
   .form { display: grid; gap: var(--space-2); max-width: 560px; }
-  .form label { display: grid; gap: 0.35rem; font-weight: 600; }
+  .form label { display: grid; gap: 0.35rem; font-weight: var(--weight-strong); font-size: var(--text-sm); }
   .form input, .form textarea {
     font: inherit; color: var(--color-ink); background: var(--color-surface);
-    border: 1px solid var(--color-line); border-radius: 10px; padding: 0.75rem 0.9rem;
+    border: var(--hairline) solid var(--color-line); border-radius: var(--radius-sm); padding: 0.75rem 0.9rem;
   }
-  .form input:focus, .form textarea:focus { border-color: var(--color-accent); outline: none; }
+  .form input:focus-visible, .form textarea:focus-visible { border-color: var(--color-accent); outline: 2px solid var(--color-focus); outline-offset: 1px; }
   .form button { justify-self: start; cursor: pointer; font: inherit; font-weight: 600; }
-  .elsewhere { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+  .elsewhere { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; font-weight: var(--weight-strong); }
+  @media (min-width: 900px) { .contact { grid-template-columns: 1fr 1fr; } .contact .prose { grid-column: 1 / -1; } }
 </style>
