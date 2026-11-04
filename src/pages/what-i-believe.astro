@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+// Values and hospitality, in Amaan's own words only. The quote is his. Every striped block is a
+// marked placeholder until he writes or approves that text: never fill one with invented copy.
+// noindex and out of the sitemap until his words replace the placeholders.
+---
+<Base
+  title="What I believe | Amaan Omar"
+  description="What I believe, and how it shapes my work and my life."
+  noindex
+>
+  <div class="container believe">
+    <div class="page-head">
+      <h1>What I believe</h1>
+      <p class="pending">Opening paragraph in Amaan's words: what his faith means for his work and his life. Waiting for his text.</p>
+    </div>
+
+    <blockquote class="quote">
+      “It affects my business, how I think, my decisions, how I live, my values, morals, everything.”
+      <cite>Amaan</cite>
+    </blockquote>
+
+    <ol class="values">
+      <li>
+        <h2><span class="pending">Value 1 · his heading</span></h2>
+        <p class="pending">One paragraph, first person, a real example from his work or story.</p>
+      </li>
+      <li>
+        <h2><span class="pending">Value 2 · his heading</span></h2>
+        <p class="pending">One paragraph, first person, a real example.</p>
+      </li>
+      <li>
+        <h2><span class="pending">Value 3 · his heading</span></h2>
+        <p class="pending">One paragraph, first person, a real example.</p>
+      </li>
+    </ol>
+
+    <div class="table-bar center" role="separator"></div>
+
+    <div class="believe-close">
+      <p class="pending">A welcome in his words: who he would love to hear from.</p>
+      <a class="btn btn-primary" href="/contact/">Get in touch</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .believe { max-width: 760px; }
+  .believe .page-head .pending { margin-top: var(--space-3); }
+  .quote { margin: 0; }
+  .values { list-style: none; margin: var(--space-5) 0 0; padding: 0; border-top: var(--hairline) solid var(--color-line); }
+  .values li { padding-block: var(--space-4); border-bottom: var(--hairline) solid var(--color-line); }
+  .values h2 { margin-bottom: var(--space-2); }
+  .values h2 .pending { display: inline-block; }
+  .believe-close { text-align: center; padding-bottom: var(--space-5); }
+  .believe-close .pending { max-width: 34rem; margin: 0 auto var(--space-3); }
+</style>

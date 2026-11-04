@@ -1,0 +1,127 @@
+/*
+ * Amaan Omar brand tokens: Long Table (chosen 2026-11-04).
+ * Brand tokens for amaanomar.com.
+ * Variable NAMES match the site scaffold (branch rebuild); values are the brand.
+ * Variables only. Fonts are declared in fonts.css (self-hosted, OFL). Optional
+ * component styles that use these tokens are in components.css.
+ * Source of truth: the brand guide. Do not invent new colours; add a role here first.
+ */
+:root {
+  /* ---- palette (raw) ---- */
+  --bone: #F3E9DA;      /* page background */
+  --linen: #E6D8C3;     /* cards, surfaces; never text */
+  --linen-deep: #DDCDB5;/* hairlines, borders, placeholders; never text */
+  --walnut: #2B1D14;    /* text; the dark surface */
+  --umber: #6B5444;     /* secondary text on bone and linen */
+  --clay: #A4462A;      /* the table, buttons, links */
+  --indigo: #233A6E;    /* shweshwe indigo: second surface, pull quotes */
+  --ochre: #D9A441;     /* highlight on walnut or indigo ONLY (1.87:1 on bone) */
+
+  /* ---- colour roles (names used by the site) ---- */
+  --color-bg: var(--bone);
+  --color-surface: var(--linen);
+  --color-ink: var(--walnut);          /* 13.56:1 on bone */
+  --color-ink-muted: var(--umber);     /* 5.87:1 on bone, 5.03:1 on linen */
+  --color-line: var(--linen-deep);
+  --color-accent: var(--clay);         /* 5.01:1 on bone; on linen only at 24px+ or bold 19px+ */
+  --color-accent-2: var(--indigo);     /* 9.19:1 with bone */
+  --color-accent-ink: var(--bone);     /* text on clay or indigo */
+  /* dark sections (walnut or indigo grounds) */
+  --color-dark: var(--walnut);
+  --color-on-dark: var(--bone);
+  --color-on-dark-muted: var(--linen); /* 11.62:1 on walnut, 7.87:1 on indigo */
+  --color-highlight: var(--ochre);     /* 7.25:1 on walnut, 4.91:1 on indigo */
+  --color-focus: var(--clay);
+  --color-focus-on-dark: var(--ochre);
+
+  /* ---- type ---- */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Fraunces must always carry these: soft terminals, no wonky alternates (the file defaults WONK to 1) */
+  --display-axes: 'SOFT' 100, 'WONK' 0;
+  --weight-display: 400;   /* headlines */
+  --weight-display-strong: 500; /* h2, h3, wordmark, changelog titles */
+  --weight-body: 400;
+  --weight-strong: 600;    /* labels, buttons, nav */
+
+  --text-xs: 0.8125rem;    /* 13px  labels, eyebrows, changelog dates */
+  --text-sm: 0.9375rem;    /* 15px  captions, meta, footer */
+  --text-base: 1.0625rem;  /* 17px  body */
+  --text-lg: 1.25rem;      /* 20px  lede, h3, changelog titles */
+  --text-quote: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);   /* 22 to 28  pull quote (Fraunces italic) */
+  --text-xl: clamp(1.625rem, 1.3rem + 1.3vw, 2.25rem);      /* 26 to 36  h2 */
+  --text-2xl: clamp(2.25rem, 1.7rem + 2.4vw, 3.5rem);       /* 36 to 56  page h1 */
+  --text-3xl: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);        /* 40 to 72  home hero headline */
+
+  --leading: 1.65;         /* body */
+  --leading-lede: 1.55;
+  --leading-heading: 1.15; /* h2, h3 */
+  --leading-display: 1.06; /* h1, hero */
+  --leading-label: 1.2;
+  --tracking-display: -0.015em;
+  --tracking-label: 0.12em;  /* uppercase labels */
+  --tracking-date: 0.08em;   /* changelog dates */
+
+  /* ---- shape and space ---- */
+  --radius-sm: 6px;        /* tags, inputs */
+  --radius: 10px;          /* cards, panels */
+  --radius-lg: 18px;       /* photos, post cards, the quote card */
+  --radius-pill: 999px;    /* buttons, tone chips */
+  /* the arch: a portrait frame (always 4:5) with a full semicircle top */
+  --radius-arch: 50% 50% var(--radius-lg) var(--radius-lg) / 40% 40% var(--radius-lg) var(--radius-lg);
+  --bar: 6px;              /* table-bar divider thickness (legs are --bar wide, 3x tall) */
+  --hairline: 1px;
+
+  --space-0: 0.25rem;      /* 4  */
+  --space-1: 0.5rem;       /* 8  */
+  --space-2: 1rem;         /* 16 */
+  --space-3: 1.5rem;       /* 24 */
+  --space-4: 2.5rem;       /* 40 */
+  --space-5: 4rem;         /* 64 */
+  --space-6: 6rem;         /* 96  between home sections on desktop */
+  --measure: 66ch;
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 4rem); /* 20 mobile to 64 desktop */
+
+  /* ---- motion ---- */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-settle: cubic-bezier(0.22, 1.2, 0.36, 1); /* a small overshoot: wood landing */
+  --dur: 220ms;
+  --dur-slow: 600ms;
+
+  /*
+   * Hero (three.js). These names are what the current scene (src/components/hero) reads.
+   * Charred planks in walnut and umber; the clay table top lands last.
+   */
+  --hero-ink: #2B1D14;     /* charred plank faces */
+  --hero-ink-2: #6B5444;   /* one in five: less burnt */
+  --hero-mark: #A4462A;    /* the table top */
+  --hero-piece-w: 0.27;
+  --hero-piece-h: 0.12;
+  --hero-piece-d: 0.1;
+  --hero-piece-round: 0.35;
+  --hero-density: 2;
+  --hero-speed: 0.7;
+  --hero-snap: 0;
+  --hero-shade: 0.45;
+  --hero-spin: 0;          /* the table does not spin; it settles and breathes */
+  --hero-tilt: 0.1;
+  --hero-scatter: 1;
+  --hero-mark-w: 2.6;
+  --hero-mark-h: 0.09;
+  --hero-mark-d: 0.4;
+  --hero-mark-round: 0.4;
+  --hero-mark-x: 0;
+  --hero-mark-y: -1.92;
+  --hero-mark-blink: 0;
+  /* Long Table concept (brand guide, "Motion and 3D"): the table scene reads these */
+  --hero-planks: 14;            /* 7 top boards, 4 leg boards, 2 battens, 1 stretcher */
+  --hero-char: #1A110B;         /* deepest char, plank ends and cracks */
+  --hero-ember: #C2622F;        /* warm rim light / ember in cracks, used sparingly */
+  --hero-light: #FFD9A0;        /* key light colour: late afternoon */
+  --hero-light-angle: 28;       /* degrees above the horizon, from screen left */
+  --hero-assemble-ms: 2600;     /* scatter to assembled table */
+  --hero-settle-ms: 900;        /* overshoot and settle after the last plank lands */
+  --hero-breathe: 0.03;         /* max plank separation on scroll, scene units */
+  --hero-breathe-period-s: 7;   /* idle breathing cycle */
+}

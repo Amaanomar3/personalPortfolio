@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import { SITE } from '../site';
+---
+<Base
+  title="Amaan Omar | AI technical leader and advisor"
+  description="I'm Amaan Omar, an AI technical leader and advisor to African startups and ventures, and co-founder and technical lead of QuickLaunch. Cape Town."
+>
+  <section class="hero container">
+    {/* The scene comes first in the source so the copy never moves when it arrives (no layout shift). */}
+    <Hero />
+    <div class="hero-copy">
+      <p class="eyebrow">Amaan Omar · Cape Town</p>
+      <h1>{SITE.headline}</h1>
+      <p class="lede">
+        I co-founded QuickLaunch with Marcel Manikum and lead its technical side. I build the harnesses
+        and memory systems that let AI agents write code safely and stay accurate on real codebases.
+        I'm self-taught.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/about/">Read my story</a>
+        <a class="btn btn-ghost" href="/work/">See the work</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-labelledby="now">
+    <p class="eyebrow">Now</p>
+    <h2 id="now">What I'm working on</h2>
+    <div class="cards">
+      <a class="card" href="/work/#quicklaunch">
+        <h3>QuickLaunch</h3>
+        <p>
+          The company I co-founded with Marcel Manikum. We build software with AI at its core, and we audit
+          and rescue products that were built quickly on Lovable, Bolt and Replit.
+        </p>
+      </a>
+      <a class="card" href="/work/#onnu">
+        <h3>Onnu</h3>
+        <p>Our AI code-audit product. First it asks you what your app should do. Then it checks whether it does.</p>
+      </a>
+      <a class="card" href="/work/#advisory">
+        <h3>Advisory</h3>
+        <p>
+          I advise African startups and ventures on building with AI: which model suits which job, where
+          AI-written code tends to break, and how to rescue a product that was built fast.
+        </p>
+      </a>
+      {/*
+        AWAITING AMAAN'S APPROVAL of this wording.
+        Do not render until he approves it.
+        <a class="card" href="/work/#quicklaunch">
+          <h3>An agentic platform</h3>
+          <p>I built a platform where a fleet of AI agents runs real projects. Each agent has its own job and
+          its own memory, and they ask me when a decision is mine.</p>
+        </a>
+      */}
+    </div>
+  </section>
+
+  <div class="container"><div class="table-bar center" role="separator"></div></div>
+
+  <section class="container home-story" aria-labelledby="how">
+    <div class="prose">
+      <p class="eyebrow">My story</p>
+      <h2 id="how">How I got here</h2>
+      <p>
+        I started coding in grade 6 because I wanted to make games. I never got a degree. I learned by
+        building: through a fire at my father's shop, a restaurant night shift, a year at IDM, freelance
+        clients in Amsterdam, the US and Dubai, and a company of my own.
+      </p>
+      <a class="btn btn-ghost" href="/about/">Read the full story</a>
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .hero { display: grid; grid-template-columns: 5fr 6fr; gap: var(--space-4); align-items: center; padding-block: var(--space-5) var(--space-4); }
+  .hero-copy { grid-column: 1; grid-row: 1; }
+  .hero-copy h1 { font-size: var(--text-3xl); margin-top: var(--space-2); }
+  .hero-copy .lede { margin-top: var(--space-3); max-width: 34rem; }
+  .hero .hero-art { grid-column: 2; grid-row: 1; }
+  .home-story { padding-bottom: var(--space-5); }
+  @media (min-width: 1000px) { .hero ~ .section { padding-block: var(--space-6) var(--space-5); } }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-2); padding-block: var(--space-1) var(--space-4); }
+    .hero-copy, .hero .hero-art { grid-column: 1; grid-row: auto; }
+    .hero .hero-art { margin-inline: calc(-1 * var(--gutter)); width: calc(100% + 2 * var(--gutter)); }
+  }
+</style>

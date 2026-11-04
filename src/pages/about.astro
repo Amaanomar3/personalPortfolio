@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+// Dates: only years Amaan has given. "After matric" stands in where the year is not confirmed.
+---
+<Base
+  title="My story | Amaan Omar"
+  description="How a self-taught developer from Cape Town went from rebuilding his father's burnt-down shop to co-founding QuickLaunch and building with AI."
+>
+  <div class="container page-head story-head">
+    <div class="prose">
+      <h1>My story</h1>
+      <p class="lede">
+        I taught myself to code, rebuilt my father's fabric store after a fire, and co-founded QuickLaunch
+        with Marcel Manikum. This is the road here, oldest first.
+      </p>
+    </div>
+    <div class="placeholder arch story-photo" role="img" aria-label="Photo placeholder">
+      Photo placeholder<br />Amaan at a table, 4:5
+    </div>
+  </div>
+
+  <section class="container story-list" aria-label="The road here">
+    <ol class="changelog">
+      <li>
+        <time>Grade 6</time>
+        <div>
+          <h3>I started coding</h3>
+          <p>
+            I found an online course and learned a little C, C++ and C#, because I wanted to make video games.
+            By grade 10 I was building small games and levels of my own.
+          </p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2021">2021</time>
+        <div>
+          <h3>Rebuilt my father's fabric store</h3>
+          <p>
+            During covid I helped out in my father's fabric store. At the start of 2021, my matric year, the store
+            burnt down and we lost all our income. I spent most of that year rebuilding it with him. During the
+            June exams I was drilling shelves. We cut up the burnt shelving and reshaped it into tables, shelves
+            and racks for the new shop.
+          </p>
+        </div>
+      </li>
+      <li>
+        <time>After matric</time>
+        <div>
+          <h3>Leaned on code</h3>
+          <p>
+            I left home at 18. I had a little programming and not much else, so I decided to lean on it and
+            pursue it full time.
+          </p>
+          <p>
+            I got a job at Ocean Basket after a lot of applications. On night shifts I coded in the morning, and
+            on day shifts I coded at night. I was struggling, and they let me go. After that I worked about six
+            months at a friend's parents' butter factory, still coding.
+          </p>
+        </div>
+      </li>
+      {/* [CONFIRM] "Gifties" (his spelling) vs "Giftees" (old site, giftees.net). */}
+      <li>
+        <time datetime="2023">2023</time>
+        <div>
+          <h3>A year at IDM, and freelancing at night</h3>
+          <p>
+            Then I spent a year at IDM in Cape Town, working on the marketing funnel and the tracking on landing
+            pages. I got in by doing a project for the dev team manager. For six months there was no work for me,
+            only "it's coming", and that killed my drive for the company. I didn't like corporate life, and it was
+            still the best way I had to get experience.
+          </p>
+          <p>
+            At the same time I was freelancing. I'd catch the bus at 6:30am, get home at 7pm, and work on Gifties,
+            an international gifting platform built on Bubble, from 7 to 10pm. I had clients in Amsterdam, the US
+            and Dubai. I saved up, and at the end of 2023 I quit to freelance full time.
+          </p>
+        </div>
+      </li>
+      {/* [CONFIRM] R100,000 a month is revenue. */}
+      <li>
+        <time datetime="2024-05">May 2024</time>
+        <div>
+          <h3>Started CreatorConnect</h3>
+          <p>
+            In May 2024 I started my own company, CreatorConnect: a dashboard for UGC marketing agencies to track
+            TikTok view counts, because there was no software for it. I built it very quickly. For a few months it
+            reached R100,000 a month, about $25,000 in total. Then I burnt out and stopped.
+          </p>
+        </div>
+      </li>
+      <li>
+        <time datetime="2025">2025</time>
+        <div>
+          <h3>A low point, then QuickLaunch</h3>
+          <p>At the start of 2025 I hit a low point.</p>
+          <p>
+            Then I decided to give business another shot and started QuickLaunch. I knew I needed a co-founder, so
+            I went to every workshop and networking event I could. I met Marcel Manikum at one of them.
+          </p>
+        </div>
+      </li>
+      {/* [CONFIRM] Jasiri wording; "technical side" vs "CTO". */}
+      <li class="now">
+        <time>Now</time>
+        <div>
+          <h3>QuickLaunch and Onnu</h3>
+          <p>
+            Today Marcel and I run QuickLaunch together. He's our CEO and I lead the technical side. QuickLaunch is
+            part of Jasiri Talent Investor, Cohort 2 South Africa, and that's where I designed and built Onnu, our
+            AI code-audit product.
+          </p>
+          <p>
+            My work now is making AI build software reliably. I design the harnesses and guardrails that let AI
+            write code safely, and the memory and context systems that keep AI agents accurate on large, real
+            codebases. I also advise African startups and ventures on building with AI.
+          </p>
+        </div>
+      </li>
+    </ol>
+    {/*
+      FAITH LINE: AWAITING AMAAN'S APPROVAL.
+      Not rendered. Uncomment only once Amaan approves this wording
+      (or replace it with his own sentence). Told as his values only; no comparison with any other faith.
+      <p>
+        I'm a Christian, and I want to be open about it. My faith shapes how I run my business, how I think,
+        the decisions I make, how I live and the values I hold. It's part of everything I do.
+      </p>
+    */}
+  </section>
+
+  <div class="container"><div class="table-bar center" role="separator"></div></div>
+
+  <section class="container prose story-close">
+    <p>
+      I never got a degree. Everything I know I learned by building things, breaking them and fixing them.
+      If you're building with AI in Africa, I'd like to hear what you're working on.
+    </p>
+    <div class="btn-row"><a class="btn btn-primary" href="/contact/">Get in touch</a></div>
+  </section>
+</Base>
+
+<style>
+  .story-head { display: grid; grid-template-columns: 1fr 18rem; gap: var(--space-4); align-items: end; }
+  .story-photo { width: 100%; }
+  .story-close { padding-bottom: var(--space-5); text-align: center; margin-inline: auto; }
+  .story-close .btn-row { justify-content: center; }
+  .changelog p + p { margin-top: var(--space-2); }
+  @media (max-width: 760px) {
+    .story-head { grid-template-columns: 1fr; }
+    .story-photo { max-width: 14rem; grid-row: 1; }
+  }
+</style>

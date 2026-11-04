@@ -1,0 +1,4 @@
+# Old 11ty URLs -> new site map
+/projects                  /work/            301
+/projects/*                /work/            301
+/sitemap.xml               /sitemap-index.xml 301

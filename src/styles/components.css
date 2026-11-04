@@ -1,0 +1,87 @@
+/*
+ * Long Table components. Optional: everything here uses tokens.css only.
+ * Spec and do/don't for each are in the brand guide. Class names are suggestions;
+ * rename freely in the site, keep the values.
+ */
+
+/* Fraunces always with soft terminals and no wonky alternates */
+.display, h1, h2, h3, .wm, .changelog h3, .quote { font-variation-settings: var(--display-axes); }
+
+/* Eyebrow / label */
+.eyebrow {
+  font: var(--weight-strong) var(--text-xs)/var(--leading-label) var(--font-body);
+  letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-accent);
+}
+.on-dark .eyebrow { color: var(--color-highlight); }
+
+/* Table-bar divider: a clay bar on two short legs. Use between major sections, never between list rows.
+   Markup: <div class="table-bar" role="separator"></div>  (not <hr>: Chrome does not draw pseudo-elements on hr) */
+.table-bar {
+  position: relative; height: var(--bar); background: var(--color-accent); border: 0;
+  border-radius: 2px; margin: var(--space-5) auto calc(var(--space-5) + var(--bar) * 2);
+  width: min(100%, 22rem);
+}
+.table-bar::before, .table-bar::after {
+  content: ""; position: absolute; top: 0; width: var(--bar); height: calc(var(--bar) * 3);
+  background: inherit; border-radius: 0 0 2px 2px;
+}
+.table-bar::before { left: 12%; }
+.table-bar::after { right: 12%; }
+.on-dark .table-bar { background: var(--color-highlight); }
+
+/* The arch: portrait frame for photos of Amaan. Always 4:5. */
+.arch { aspect-ratio: 4 / 5; border-radius: var(--radius-arch); overflow: hidden; background: var(--color-surface); }
+.arch img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Pull quote: his words, on indigo */
+.quote {
+  background: var(--color-accent-2); color: var(--color-on-dark); border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-3) calc(var(--space-3) - 2px);
+  font: italic var(--weight-display) var(--text-quote)/1.35 var(--font-display);
+}
+.quote cite {
+  display: block; margin-top: var(--space-2); font: normal var(--weight-strong) var(--text-xs)/var(--leading-label) var(--font-body);
+  letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-highlight);
+}
+
+/* Changelog: the dated list on Story (oldest first) and Work (newest first) */
+.changelog { list-style: none; margin: 0; padding: 0; border-top: var(--hairline) solid var(--color-line); }
+.changelog > li {
+  display: grid; grid-template-columns: 7.5rem 1fr auto; column-gap: var(--space-3);
+  padding-block: var(--space-3); border-bottom: var(--hairline) solid var(--color-line); align-items: baseline;
+}
+.changelog time {
+  font: var(--weight-strong) var(--text-xs)/var(--leading-label) var(--font-body);
+  letter-spacing: var(--tracking-date); text-transform: uppercase; color: var(--color-accent);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.changelog h3 { font: var(--weight-display-strong) var(--text-lg)/1.3 var(--font-display); margin: 0; color: var(--color-ink); }
+.changelog p { margin: var(--space-1) 0 0; font-size: 1rem; line-height: 1.55; color: var(--color-ink-muted); max-width: 60ch; }
+.changelog a { font-weight: var(--weight-strong); }
+.changelog .tag {
+  font: var(--weight-strong) var(--text-xs)/1 var(--font-body); color: var(--color-ink);
+  background: var(--color-surface); border-radius: var(--radius-sm); padding: 0.4em 0.6em; white-space: nowrap;
+}
+.changelog > li.now time::before {
+  content: ""; display: inline-block; width: 0.55em; height: 0.55em; border-radius: 50%;
+  background: var(--color-accent); margin-right: 0.5em; vertical-align: 0.05em;
+}
+@media (max-width: 640px) {
+  .changelog > li { grid-template-columns: 1fr auto; row-gap: var(--space-1); }
+  .changelog time { grid-column: 1; }
+  .changelog .tag { grid-column: 2; grid-row: 1; }
+  .changelog > li > div { grid-column: 1 / -1; }
+}
+
+/* Seats around a table: the community motif. Circles only, in bone, clay, ochre on indigo or walnut. */
+.seats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6em; width: max-content; }
+.seats i { width: 1em; height: 1em; border-radius: 50%; background: var(--color-on-dark); }
+.seats i:nth-child(3n) { background: var(--color-highlight); }
+.seats i:nth-child(4n) { background: var(--color-accent); }
+
+/* Buttons on dark grounds */
+.on-dark { background: var(--color-dark); color: var(--color-on-dark); }
+.on-dark.indigo { background: var(--color-accent-2); }
+.on-dark a { color: var(--color-highlight); }
+.on-dark .btn-primary { background: var(--color-highlight); color: var(--color-dark); border-color: var(--color-highlight); }
+.on-dark :focus-visible { outline-color: var(--color-focus-on-dark); }
