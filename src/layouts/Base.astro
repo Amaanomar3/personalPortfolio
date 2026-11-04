@@ -13,6 +13,16 @@ const ogImage = new URL(SITE.ogImage, SITE.url).href;
 const path = Astro.url.pathname;
 const year = new Date().getFullYear();
 const isCurrent = (href: string) => path === href || path.startsWith(href);
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.headline,
+  homeLocation: { '@type': 'Place', name: 'Cape Town, South Africa' },
+  worksFor: { '@type': 'Organization', name: 'QuickLaunch', url: SITE.links.quicklaunch },
+  sameAs: [SITE.links.linkedin, SITE.links.x, SITE.links.github],
+};
 ---
 <!doctype html>
 <html lang="en">
@@ -47,6 +57,7 @@ const isCurrent = (href: string) => path === href || path.startsWith(href);
     <meta name="theme-color" content="#F3E9DA" />
     <link rel="preload" href="/fonts/Fraunces-VF.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Figtree-VF.woff2" as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(person)} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
